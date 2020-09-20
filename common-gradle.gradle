@@ -1,0 +1,148 @@
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'de.mannodermaus.android-junit5'
+
+apply from: rootProject.file('dependencies.gradle')
+apply from: rootProject.file('versions.gradle')
+
+android {
+    compileSdkVersion versions.compileSdk
+
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versions.code
+        versionName versions.name
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArgument "runnerBuilder", "de.mannodermaus.junit5.AndroidJUnit5Builder"
+
+        flavorDimensions "version"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/java'
+        test.java.srcDirs += 'src/test/java'
+        androidTest.java.srcDirs += 'src/androidTest/java'
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+        junitPlatform {
+            filters {
+                engines {
+                    include 'spek2'
+                }
+            }
+        }
+
+        unitTests.all {
+            testLogging.events = ["passed", "skipped", "failed"]
+        }
+    }
+
+    packagingOptions {
+        exclude "META-INF/LICENSE*"
+    }
+}
+
+dependencies {
+
+    implementation(
+            deps.kotlin.stdlib,
+            deps.kotlin.android_ktx,
+
+            deps.material.material,
+            deps.constraint.constraint,
+
+            deps.dagger.dagger,
+            deps.dagger.android,
+            deps.dagger.assisted_inject,
+
+            deps.navigation.fragment,
+            deps.navigation.ui,
+
+            deps.room.room,
+            deps.room.rxjava,
+
+            deps.lifecycle.view_model,
+            deps.lifecycle.extensions,
+
+            deps.tools.timber,
+
+            deps.retrofit.retrofit,
+            deps.retrofit.retrofit_converter,
+            deps.retrofit.retrofit_adapter_rx,
+
+            deps.ok_http.ok_http,
+
+            deps.rx_java.rx_java,
+            deps.rx_java.rx_android,
+            deps.rx_java.rx_binding,
+
+            deps.playservices.location,
+            deps.playservices.maps,
+            deps.playservices.maps_utils,
+
+            deps.picasso.picasso,
+
+            deps.worker.runtime,
+
+            deps.inputmask,
+
+            deps.insetter,
+
+            deps.inputmask,
+
+            deps.lottie,
+
+            deps.guava,
+
+            deps.stickyheaders,
+
+            deps.flexibledivider,
+
+            deps.worker.runtime,
+            deps.worker.rxjava,
+
+            'com.vk:androidsdk:1.6.9',
+
+            'com.facebook.stetho:stetho:1.5.1'
+    )
+
+    kapt(
+            deps.dagger.processor,
+            deps.dagger.android_processor,
+            deps.dagger.assisted_inject_processor,
+            deps.room.processor
+    )
+
+    testImplementation(testImpl)
+
+    testRuntimeOnly(testRuntime)
+
+    androidTestImplementation(androidTestImpl)
+
+    androidTestRuntimeOnly(androidTestRuntime)
+
+    debugImplementation "androidx.fragment:fragment-testing:1.2.4"
+
+}

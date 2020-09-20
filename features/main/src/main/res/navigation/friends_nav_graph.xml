@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/friends_nav_graph"
+    app:startDestination="@id/AuthFragment">
+
+    <fragment
+        android:id="@+id/AuthFragment"
+        android:name="ru.padev.vkclient.main.ui.auth.AuthFragment"
+        android:label="AuthFragment"
+        tools:layout="@layout/fragment_auth">
+
+        <action
+            android:id="@+id/navigate_to_friends_list"
+            app:destination="@id/FriendsListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/FriendsListFragment"
+        android:name="ru.padev.vkclient.main.ui.friends.friends_list.FriendsListFragment"
+        android:label="FriendsListFragment"
+        tools:layout="@layout/fragment_friends_list">
+
+        <action
+            android:id="@+id/navigate_to_friend_details"
+            app:destination="@id/FriendDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/FriendDetailsFragment"
+        android:name="ru.padev.vkclient.main.ui.friends.friend_details.FriendDetailsFragment"
+        android:label="FriendDetailsFragment"
+        tools:layout="@layout/fragment_friend_details">
+    </fragment>
+
+</navigation>

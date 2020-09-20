@@ -1,0 +1,21 @@
+package ru.padev.vkclient.core.domain.exception
+
+enum class ErrorCode {
+    UNKNOWN,
+    PHONE_NUMBER_NOT_FOUND,
+    BLOCK_TIME,
+    WRONG_CODE,
+    USER_AUTH,
+    DEFAULT_ERROR,
+    NETWORK,
+    SKIP_ERROR,
+    CARD_ACTIVATED,
+    CARD_NOT_FOUND,
+    CARD_WRONG_PIN,
+    CARD_ON_ACTIVATION ,
+    CART_PRODUCT_NOT_AVAILABLE ,
+    CART_ERROR ,
+    ITEM_NOT_FOUND ,
+    BIND_VIRTUAL_CARD ,
+    NOT_AUTHORIZED
+}

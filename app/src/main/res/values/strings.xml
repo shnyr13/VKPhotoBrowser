@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="splash_greetings_morning">Доброе утро</string>
+    <string name="splash_greetings_noon">Добрый день</string>
+    <string name="splash_greetings_evening">Добрый вечер</string>
+    <string name="splash_greetings_night">Доброй ночи</string>
+    <string name="splash_greetings_coma">,</string>
+    <string name="splash_greetings_exclamation_mark">!</string>
+
+</resources>

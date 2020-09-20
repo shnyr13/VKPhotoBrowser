@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">VK Friends</string>
+    <string name="nav_host_fragment_tag">NavHostFragment</string>
+
+    <!--Error Messages-->
+    <string name="error_message_unknown">Непредвиденная ошибка</string>
+    <string name="error_message_network">Ошибка сети</string>
+
+
+    <!--Common strings-->
+    <string name="common_yes">Да</string>
+    <string name="common_no">Нет</string>
+</resources>

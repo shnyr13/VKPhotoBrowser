@@ -1,0 +1,14 @@
+ext.versions = [
+
+        appId : 'ru.padev.vkclient',
+
+        compileSdk : 30,
+
+        minSdk   : 24,
+
+        targetSdk: 30,
+
+        code     : 1,
+
+        name     : '1.0'
+]

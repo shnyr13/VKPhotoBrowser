@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Auth Screen-->
+    <string name="auth_screen_title">Авторизация</string>
+    <string name="auth_button_text">Войти</string>
+
+    <!--Friends-->
+    <string name="friends_list_title">Друзья</string>
+    <string name="friend_title">Профиль друга</string>
+
+    <!--Empty result-->
+    <string name="empty_result_text">По Вашему запросу\nничего не найдено</string>
+</resources>
